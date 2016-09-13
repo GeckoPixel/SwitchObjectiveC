@@ -1,0 +1,52 @@
+#import <Foundation/Foundation.h>
+#include <time.h>
+
+int main (int argc, const char * argv[])
+{
+   srand(time(NULL));
+   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+   int array[10];
+   int buscar;
+   for(int i = 0; i<10; i++)
+   {
+        array[i] = rand()%100;
+        NSLog (@"%d\n", array[i]);
+   }
+   buscar = array[0];
+   int rando = rand()%100;
+   int op;
+   NSLog(@"el numero aleatorio es: %d",rando);
+   if(rando%2!=0)
+   {
+        op = 1;
+   }
+   else
+   {
+        op=2;
+   }
+   switch(op)
+   {
+        case 1:
+                for(int i = 0; i<10; i++)
+                {
+                    if(array[i]<buscar)
+                    {
+                        buscar = array[i];
+                    }
+                }
+                NSLog(@"El elemento menor es: %d",buscar);
+        break;
+        case 2:
+                for(int i = 0; i<10; i++)
+                {
+                    if(array[i]>buscar)
+                    {
+                        buscar = array[i];
+                    }
+                }
+                NSLog(@"El elemento mayor es: %d",buscar);
+        break;
+   }
+   [pool drain];
+   return 0;
+}
